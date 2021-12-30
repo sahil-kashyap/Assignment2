@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smartserv</title>
+</head>
+<link rel="stylesheet" href="demo2.css">
+
+<body>
+    <div class="maincontainer">
+        <div class="full">
+            <h2>Import Products</h2>
+            <div class="container">
+                <div class="leftdiv">
+                    <h4>Step 1 : Select File</h4>
+                    <input type="file" class="form-control b1" placeholder="Hours Studied" name="my_doc" id="pwd">
+                    <h4 class="b1">Supported File type : .CSV, .JSON</h4>
+
+                </div>
+
+                <div class="rightdiv">
+                    <h4>Step 2 : Specify format</h4>
+                    <div class="b2">
+                        <form id="form1" action=" " method="get">
+                            <label for="File">File Type:</label>
+                            <select id="File" name="Type">
+                            <option value="csv">CSV</option>
+                            <option value="json">JSON</option>
+                        </select><br>
+                            <label for="encoding">Charter encoding:</label>
+                            <select id="encoding" name="Type">
+                            <option value="csv">UTF-8</option>
+                        </select><br>
+                            <label for="delimiter">Delimiter:</label>
+                            <select id="delimiter" name="Type">
+                            <option value="csv">comma</option>
+                        </select><br>
+                            <label for="Header"> Has Header : </label>
+                            <input type="checkbox" id="Header" name="Header" value=0>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+
+                <div class="myDiv">
+                    <input type="checkbox" name="" id="Step3:">
+                    <label for="">Step3: Display Handling</label>
+                    <p class="bt1">select the fields to be displayed</p>
+                    <div class="card3 ">
+                        <div style="display: flex; ">
+                            <p style="padding-left: 110px; ">Available Fields</p>
+                            <p style="padding-left: 105px; ">Fields to be Displayed</p>
+                        </div>
+                        <section class="container ">
+                            <div>
+                                <select id="leftValues" size="4 " multiple>
+                                <option value="Subcategory">Subcategory</option>
+                                <option value="Title">Title</option>
+                                <option value="Price">Price</option>
+                                <option value="Popularity">Popularity</option>
+                            </select>
+                            </div>
+                            <div class="center_buttons ">
+                                <button type="button" id="btnRight">>></button>
+                                <button type="button" id="btnLeft"><< </button>
+                            </div>
+                            <div>
+                                <select id="rightValues" size="5 " multiple>
+
+                            </select>
+                            </div>
+                        </section>
+                        <script>
+                            var rightbtn = document.getElementById("btnRight");
+                            console.log(rightbtn)
+                            rightbtn.onclick = function() {
+                                console.log("inside/////////////// " + rightbtn)
+                                var selectedItem = document.getElementById("leftValues");
+                                var option = document.createElement("option");
+                                option.value = selectedItem.options[selectedItem.selectedIndex].value;
+                                option.text = selectedItem.value;
+                                var selec = document.getElementById("rightValues");
+                                selec.appendChild(option);
+                            }
+
+                            var leftbtn = document.getElementById("btnLeft");
+                            console.log(leftbtn)
+                            leftbtn.onclick = function() {
+                                console.log("inside/////////////// " + leftbtn)
+                                var selectedItem = document.getElementById("rightValues");
+                                var option = document.createElement("option");
+                                option.value = selectedItem.options[selectedItem.selectedIndex].value;
+                                option.text = selectedItem.value;
+                                var selec = document.getElementById("rightValues");
+                                selec.remove(option);
+                            }
+                        </script>
+                    </div>
+
+                </div>
+            </div>
+            <div class="bottom_buttons ">
+                <button class="next_button "> <b>Next</b></button>
+                <button class="cancel_button "><b>Cancel</b></button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
